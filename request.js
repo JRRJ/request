@@ -71,6 +71,11 @@ function filterOutReservedFunctions(reserved, options) {
 
 }
 
+// This function causes errors and may be superfluous.  Refer to:
+// https://github.com/request/request/issues/1903
+// https://github.com/request/request/pull/2240
+
+
 // Function for properly handling a connection error
 function connectionErrorHandler(error) {
   var socket = this
@@ -81,7 +86,7 @@ function connectionErrorHandler(error) {
       socket.res.emit('error', error)
     }
   } else {
-    socket._httpMessage.emit('error', error)
+    // socket._httpMessage.emit('error', error)
   }
 }
 
